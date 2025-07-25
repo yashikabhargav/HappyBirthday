@@ -1,0 +1,95 @@
+<!-- Cute Y2K Decorations floating around the main card -->
+<img src="https://api.iconify.design/pixelarticons:star.svg?color=%2387ceeb" alt="Pixel Star" class="deco star">
+<img src="https://api.iconify.design/pixelarticons:heart.svg?color=%23ff75a8" alt="Pixel Heart" class="deco heart">
+
+<div class="container">
+
+    <!-- Step 1: Welcome Screen -->
+    <div class="step active" id="step-1">
+        <h1>Hey You!</h1>
+        <p>I heard it's a super important day. So I made this little thing for you. Ready to start the journey?</p>
+        <a href="#" class="btn" onclick="nextStep()">Initiate Birthday Protocol!</a>
+    </div>
+
+    <!-- Step 2: Funny & Personal Intro -->
+    <div class="step" id="step-2">
+        <h2>Okay, Listen Up!</h2>
+        <p>This is your official permission slip to eat too much cake, ignore all responsibilities, and demand unlimited hugs (especially from me, even virtual ones count!).</p>
+        <a href="#" class="btn" onclick="nextStep()">Deal! What's next?</a>
+    </div>
+
+    <!-- Step 3: Memory Lane -->
+    <div class="step" id="step-3">
+        <h2>Memory Lane!</h2>
+        <p>Remember these? Just a few of my favorite moments with my favorite person.</p>
+        <div class="memory-lane">
+            <!-- IMPORTANT: Replace placeholder URLs with your actual images! -->
+            <div class="polaroid">
+                <img src="https://via.placeholder.com/150/ff75a8/FFFFFF?Text=Our+First+Trip" alt="A personal photo placeholder">
+                <p>Our first adventure!</p>
+            </div>
+            <div class="polaroid">
+                <img src="https://via.placeholder.com/150/9370db/FFFFFF?Text=That+Inside+Joke" alt="A personal photo placeholder">
+                <p>The day we couldn't stop laughing</p>
+            </div>
+            <div class="polaroid">
+                <img src="https://via.placeholder.com/150/87ceeb/333333?Text=Late+Night+Calls" alt="A personal photo placeholder">
+                <p>3 AM conversations</p>
+            </div>
+            <div class="polaroid">
+                <img src="https://via.placeholder.com/150/cccccc/FFFFFF?Text=Your+Photo+Here" alt="A personal photo placeholder">
+                <p>...and so many more to come!</p>
+            </div>
+        </div>
+        <br>
+        <a href="#" class="btn" onclick="nextStep()" style="margin-top:20px;">I'm not crying, you are!</a>
+    </div>
+
+    <!-- Step 4: Heartfelt Message -->
+    <div class="step" id="step-4">
+        <h2>For Real Tho...</h2>
+        <p>Being so far away is tough, but you make it feel like you're right here. You're my best friend, my biggest supporter, and the best part of my day, every day. Thank you for just being you.</p>
+        <a href="#" class="btn" onclick="nextStep()">Okay, you're cute...</a>
+    </div>
+    
+    <!-- Step 5: The Grand Finale -->
+    <div class="step" id="step-5">
+        <div class="final-wish">
+            <h2>HAPPY BIRTHDAY!</h2>
+            <p>I hope your day is filled with as much joy, laughter, and love as you bring into my life. To another year of you being ridiculously awesome. Can't wait to celebrate properly with you!</p>
+        </div>
+        <p style="margin-top: 30px; font-size:1rem;">All my love, always.</p>
+    </div>
+
+</div>
+
+<script>
+    // Simple JavaScript for the guided journey
+    let currentStep = 1;
+    const totalSteps = 5; // The total number of steps we have
+
+    function nextStep() {
+        // Hide the current step
+        const currentStepElement = document.getElementById(`step-${currentStep}`);
+        if (currentStepElement) {
+            currentStepElement.classList.remove('active');
+        }
+
+        // Move to the next step
+        currentStep++;
+
+        // If we are past the last step, just stay there.
+        if (currentStep > totalSteps) {
+            currentStep = totalSteps;
+        }
+        
+        // Show the new current step
+        const nextStepElement = document.getElementById(`step-${currentStep}`);
+        if (nextStepElement) {
+            // We need a tiny delay to allow the fadeOut to be noticed
+            setTimeout(() => {
+                nextStepElement.classList.add('active');
+            }, 150);
+        }
+    }
+</script>
